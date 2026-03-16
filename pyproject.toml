@@ -1,0 +1,42 @@
+[build-system]
+requires = ["flit_core>=3.11,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pluca-memcached"
+version = "0.1.0"
+description = "Memcached adapter for pluca using pymemcache"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Flavio Veloso Soares", email = "flaviovs@magnux.com" }
+]
+dependencies = [
+  "pluca",
+  "pymemcache>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "flit",
+  "mypy",
+  "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/flaviovs/pluca-memcached"
+Repository = "https://github.com/flaviovs/pluca-memcached"
+Issues = "https://github.com/flaviovs/pluca-memcached/issues"
+
+[tool.flit.module]
+name = "pluca_memcached"
+directory = "src"
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src/pluca_memcached", "tests"]
+
+[[tool.mypy.overrides]]
+module = ["pymemcache", "pymemcache.*"]
+ignore_missing_imports = true

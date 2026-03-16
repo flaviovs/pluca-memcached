@@ -1,0 +1,6 @@
+services:
+  memcached:
+    image: memcached:alpine
+    command: -m 8
+    ports:
+      - '11211:11211'
